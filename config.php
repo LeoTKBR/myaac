@@ -141,10 +141,12 @@ $config = array(
 	'smtp_port' => 465, // 25 (default) / 465 (ssl, GMail) / 587 (tls, Microsoft Outlook)
 	'smtp_auth' => true, // need authorization?
 	'smtp_user' => 'tibianovaeraoficial@gmail.com', // here your email username
+	'smtp_secure' => 'ssl', // What kind of encryption to use on the SMTP connection. Options: '', 'ssl' (GMail) or 'tls' (Microsoft Outlook)
 	'smtp_debug' => false, // set true to debug (you will see more info in error.log)
 
 	// reCAPTCHA (prevent spam bots)
 	'recaptcha_enabled' => true, // enable recaptcha verification code
+	'recaptcha_theme' => 'dark', // light, dark
 
 	// e-mail senders
 	'send_mail_when_change_password' => true,	// send e-mail with new password when change password to account
