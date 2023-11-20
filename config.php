@@ -51,7 +51,7 @@ $config = array(
 	'backward_support' => true,
 
 	// head options (html)
-	'meta_description' => 'Tibia is a free massive multiplayer online role playing game (MMORPG).', // description of the site
+	'meta_description' => 'ATS(Alternative Tibia Server), global with personalized features.', // description of the site
 	'meta_keywords' => 'free online game, free multiplayer game, ots, open tibia server', // keywords list separated by commas
 	'title_separator' => ' - ',
 
@@ -96,17 +96,17 @@ $config = array(
 	'account_login_by_email_fallback' => false, // allow also additionally login by Account Name/Number (for users that might forget their email)
 	'account_create_auto_login' => false, // auto login after creating account?
 	'account_create_character_create' => true, // allow directly to create character on create account page?
-	'account_mail_verify' => false, // force users to confirm their email addresses when registering account
+	'account_mail_verify' => true, // force users to confirm their email addresses when registering account
     'account_mail_confirmed_reward' => [ // reward users for confirming their E-Mails
         // account_mail_verify needs to be enabled too
-        'premium_days' => 0,
+        'premium_days' => 14,
         'coins_transferable' => 0,
-        'coins' => 0,
+        'coins' => 10000,
         'message' => 'You received %d %s for confirming your E-Mail address.' // example: You received 20 coins for confirming your E-Mail address.
     ],
 	'account_mail_unique' => true, // email addresses cannot be duplicated? (one account = one email)
-	'account_premium_days' => 0, // default premium days on new account
-	'account_premium_coins' => 0, // default coins on new account
+	'account_premium_days' => 7, // default premium days on new account
+	'account_premium_coins' => 5000, // default coins on new account
 	'account_welcome_mail' => false, // send welcome email when user registers
     'account_welcome_mail_show_pass' => false, // send password in welcome email
 	'account_mail_change' => 2, // how many days user need to change email to account - block hackers
@@ -115,41 +115,36 @@ $config = array(
 
     'account_change_coin_type' => 'coins', // which coin you want to use, coins or coins_transferable to buy changes at site
     'account_change_character_name' => false, // can user change their character name for coins?
-	'account_change_character_name_coins' => 30, // cost of name change
+	'account_change_character_name_coins' => 150, // cost of name change
 	'account_change_character_sex' => false, // can user change their character sex for coins?
-	'account_change_character_sex_coins' => 30, // cost of sex change
+	'account_change_character_sex_coins' => 250, // cost of sex change
     'account_change_character_main' => true, // can user change their main character for coins?
-    'account_change_character_main_coins' => 250, // cost of main change
+    'account_change_character_main_coins' => 2500, // cost of main change
 	'characters_per_account' => 10,	// max. number of characters per account
     'account_update_info_on_register' => true, // let player update your 'Public Information' when register at first time only
 
     // recovery key
-    'recovery_key_length' => 15,                // length of recovery key code
+    'recovery_key_length' => 20,                // length of recovery key code
     'generate_new_reckey' => true,				// let player generate new recovery key, he will receive e-mail with new rec key (not display on page, hacker can't generate rec key)
     'generate_new_reckey_price' => 250,			// coins price for new recovery key
 
 	// mail
-	'mail_enabled' => false, // is aac maker configured to send e-mails?
-	'mail_address' => 'no-reply@your-server.org', // server e-mail address (from:)
-	'mail_admin' => 'your-address@your-server.org', // admin email address, where mails from contact form will be sent
+	'mail_enabled' => true, // is aac maker configured to send e-mails?
+	'mail_address' => 'tibianovaeraoficial@gmail.com', // server e-mail address (from:)
+	'mail_admin' => 'tibianovaeraoficial@gmail.com', // admin email address, where mails from contact form will be sent
 	'mail_signature' => array( // signature that will be included at the end of every message sent using _mail function
 		'plain' => ""/*"--\nMy Server,\nhttp://www.myserver.com"*/,
 		'html' => ''/*'<br/>My Server,\n<a href="http://www.myserver.com">myserver.com</a>'*/
 	),
-	'smtp_enabled' => false, // send by smtp or mail function (set false if use mail function, set to true if you use GMail or Microsoft Outlook)
-	'smtp_host' => '', // mail host. smtp.gmail.com for GMail / smtp-mail.outlook.com for Microsoft Outlook
-	'smtp_port' => 25, // 25 (default) / 465 (ssl, GMail) / 587 (tls, Microsoft Outlook)
+	'smtp_enabled' => true, // send by smtp or mail function (set false if use mail function, set to true if you use GMail or Microsoft Outlook)
+	'smtp_host' => 'smtp.gmail.com', // mail host. smtp.gmail.com for GMail / smtp-mail.outlook.com for Microsoft Outlook
+	'smtp_port' => 465, // 25 (default) / 465 (ssl, GMail) / 587 (tls, Microsoft Outlook)
 	'smtp_auth' => true, // need authorization?
-	'smtp_user' => 'admin@example.org', // here your email username
-	'smtp_pass' => '',
-	'smtp_secure' => '', // What kind of encryption to use on the SMTP connection. Options: '', 'ssl' (GMail) or 'tls' (Microsoft Outlook)
+	'smtp_user' => 'tibianovaeraoficial@gmail.com', // here your email username
 	'smtp_debug' => false, // set true to debug (you will see more info in error.log)
 
 	// reCAPTCHA (prevent spam bots)
-	'recaptcha_enabled' => false, // enable recaptcha verification code
-	'recaptcha_site_key' => '', // get your own site and secret keys at https://www.google.com/recaptcha
-	'recaptcha_secret_key' => '',
-	'recaptcha_theme' => 'light', // light, dark
+	'recaptcha_enabled' => true, // enable recaptcha verification code
 
 	// e-mail senders
 	'send_mail_when_change_password' => true,	// send e-mail with new password when change password to account
@@ -176,11 +171,11 @@ $config = array(
 
 	// new character config
 	'character_samples' => array( // vocations, format: ID_of_vocation => 'Name of Character to copy'
-		//0 => 'Rook Sample',
-		1 => 'Sorcerer Sample',
-		2 => 'Druid Sample',
-		3 => 'Paladin Sample',
-		4 => 'Knight Sample'
+		0 => 'Rook Sample',
+		//1 => 'Sorcerer Sample',
+		//2 => 'Druid Sample',
+		//3 => 'Paladin Sample',
+		//4 => 'Knight Sample'
 	),
 
     'use_character_sample_skills' => false,
@@ -190,7 +185,7 @@ $config = array(
 
 	// town list used when creating character
 	// won't be displayed if there is only one item (rookgaard for example)
-	'character_towns' => array(1),
+	'character_towns' => array(3),
 
 	// characters length
 	// This is the minimum and the maximum length that a player can create a character. It is highly recommend the maximum length to be 21.
@@ -198,12 +193,14 @@ $config = array(
 	'character_name_max_length' => 21,
 
 	// list of towns
-	// if you use TFS 1.3 with support for 'towns' table in database, then you can ignore this - it will be configured automatically (generated from your .OTBM map)
 	'towns' => array(
-		0 => 'No Town',
-		1 => 'Tutorial City',
-		5 => 'AbDendriel',
+		1 => 'Dawnport Tutorial',
+		2 => 'Dawnport',
+		3 => 'Rookgaard',
+		4 => 'Island of Destiny',
+		5 => 'Ab Dendriel',
 		6 => 'Carlin',
+		7 => 'Kazordoon',
 		8 => 'Thais',
 		9 => 'Venore',
 		10 => 'Ankrahmun',
@@ -214,14 +211,24 @@ $config = array(
 		15 => 'Port Hope',
 		16 => 'Svargrond',
 		17 => 'Yalahar',
-		20 => 'Rathleton'
-	),
+		18 => 'Gray Beach',
+		19 => 'Krailos',
+		20 => 'Rathleton',
+		21 => 'Roshamuul',
+		22 => 'Issavi',
+		23 => 'Event Room',
+		24 => 'Cobra Bastion',
+		25 => 'Bounac',
+		26 => 'Feyrist',
+		27 => 'Gnomprona',
+		28 => 'Marapur'
+	 ),
 
 	// guilds
 	'guild_management' => true, // enable guild management system on the site?
-	'guild_need_level' => 100, // min. level to form a guild
+	'guild_need_level' => 150, // min. level to form a guild
 	'guild_need_premium' => true, // require premium account to form a guild?
-	'guild_image_size_kb' => 80, // maximum size of the guild logo image in KB (kilobytes)
+	'guild_image_size_kb' => 250, // maximum size of the guild logo image in KB (kilobytes)
 	'guild_description_chars_limit' => 1000, // limit of guild description
 	'guild_description_lines_limit' => 6, // limit of lines, if description has more lines it will be showed as long text, without 'enters'
 	'guild_motd_chars_limit' => 150, // limit of MOTD (message of the day) that is shown later in the game on the guild channel
@@ -238,7 +245,6 @@ $config = array(
 	'team_style' => 2, // 1/2 (1 - normal table, 2 - in boxes, grouped by group id)
 	'team_display_status' => true,
 	'team_display_lastlogin' => true,
-	'team_display_world' => false,
 	'team_display_outfit' => true,
 
 	// bans page
@@ -248,8 +254,8 @@ $config = array(
 	// highscores page
 	'highscores_vocation_box' => true, // show 'Choose a vocation' box on the highscores (allowing peoples to sort highscores by vocation)?
 	'highscores_vocation' => true, // show player vocation under his nickname?
-	'highscores_frags' => false, // show 'Frags' tab (best fraggers on the server)? Only 0.3
-	'highscores_balance' => false, // show 'Balance' tab (richest players on the server)
+	'highscores_frags' => true, // show 'Frags' tab (best fraggers on the server)? Only 0.3
+	'highscores_balance' => true, // show 'Balance' tab (richest players on the server)
 	'highscores_outfit' => true, // show player outfit?
 	'highscores_country_box' => false, // doesnt work yet! (not implemented)
 	'highscores_groups_hidden' => 3, // this group id and higher won't be shown on the highscores
@@ -285,7 +291,7 @@ $config = array(
 
 	'achievements_base' => 300000,
 
-	'server_save' => '05:00:00',
+	'server_save' => '06:00:00',
 
 	'signature_enabled' => false,
 	'signature_type' => 'tibian', // signature engine to use: tibian, mango, gesior
@@ -308,7 +314,7 @@ $config = array(
 	// status bar
 	'status_bar' => true,
 	'client_link' => 'https://codeload.github.com/dudantas/tibia-client/zip/refs/tags/13.20.13560', // link to download tibia client
-	'discord_link' => 'https://discord.com/invite/gvTj5sh9Mp', // link to join discord channel
+	'discord_link' => 'https://discord.gg/4q8Zq76KUd', // link to join discord channel
 	'whatsapp_link' => '5511912345678', // wa.me/5511912345678
 	'instagram_link' => 'profile', // www.instagram.com/profile
 	'facebook_link' => 'page', // www.facebook.com/page
@@ -340,10 +346,10 @@ $config = array(
 	'gifts_system' => true,
 
 	// support/system
-	'bug_report' => true, // this configurable has no effect, its always enabled
+	'bug_report' => false, // this configurable has no effect, its always enabled
 
 	// forum
-	'forum' => 'site', // link to the server forum, set to "site" if you want to use build in forum system, otherwise leave empty if you aren't going to use any forum
+	'forum' => '', // link to the server forum, set to "site" if you want to use build in forum system, otherwise leave empty if you aren't going to use any forum
 	'forum_level_required' => 0, // level required to post, 0 to disable
 	'forum_post_interval' => 30, // in seconds
 	'forum_posts_per_page' => 20,
@@ -356,14 +362,14 @@ $config = array(
 
 	// status, took automatically from config file if empty
     'status_enabled' => true, // you can disable status checking by settings this to "false"
-	'status_ip' => '',
-	'status_port' => '',
+	'status_ip' => '127.0.0.1',
+	'status_port' => '7171',
 	'status_timeout' => 2, // how long to wait for the initial response from the server (default: 2 seconds)
 
 	// how often to connect to server and update status (default: every minute)
 	// if your status timeout in config.lua is bigger, that it will be used instead
 	// when server is offline, it will be checked every time web refreshes, ignoring this variable
-	'status_interval' => 60,
+	'status_interval' => 2,
 
 	// admin panel
 	'admin_panel_modules' => 'lastlogin,coinstransferable,coins',

@@ -72,7 +72,7 @@ define('TOOLS', BASE . 'tools/');
 define('MENU_CATEGORY_NEWS', 1);
 define('MENU_CATEGORY_ACCOUNT', 2);
 define('MENU_CATEGORY_COMMUNITY', 3);
-define('MENU_CATEGORY_FORUM', 4);
+define('MENU_CATEGORY_SUPPORT', 4);
 define('MENU_CATEGORY_LIBRARY', 5);
 define('MENU_CATEGORY_SHOP', 6);
 define('MENU_CATEGORY_CHARBAAZAR', 7);

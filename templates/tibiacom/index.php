@@ -115,6 +115,8 @@ if (isset($config['boxes']))
             source.lastChild.style.visibility = "hidden";
         }
 
+        
+
         function LoginButtonAction() {
             if (loginStatus == "false") {
                 window.location = "<?= getLink('account/manage'); ?>";
@@ -141,7 +143,7 @@ if (isset($config['boxes']))
             document.getElementById("ActiveSubmenuItemIcon_" + activeSubmenuItem).style.visibility = "visible";
             menus = localStorage.getItem('menus');
             if (menus.lastIndexOf("&") === -1) {
-                menus = "news=1&account=0&community=0&library=0&forum=0<?php if ($config['gifts_system']) echo '&shops=0'; ?>&charactertrade=0&";
+                menus = "news=1&account=0&community=0&library=0&support=0<?php if ($config['gifts_system']) echo '&shops=0'; ?>&charactertrade=0&";
             }
             FillMenuArray();
             InitializeMenu();
@@ -331,8 +333,8 @@ if (isset($config['boxes']))
                     <img id="TibiaLogoArtworkTop"
                          src="<?= $template_path; ?>/images/header/<?= $config['logo_image']; ?>"
                          onClick="window.location = '<?= getLink('news') ?>';" alt="logoartwork"/>
-                    <img id="LogoLink" src="<?= $template_path; ?>/images/header/tibia-logo-artwork-string.gif"
-                         onClick="window.location = 'mailto:<?= $config['mail_address']; ?>';" alt="logoartwork"/>
+                    <!--<img id="LogoLink" src="<?= $template_path; ?>/images/header/tibia-logo-artwork-string.gif"
+                         onClick="window.location = 'mailto:<?= $config['mail_address']; ?>';" alt="logoartwork"/>-->
                 </div>
 
                 <div id="Loginbox">
@@ -346,8 +348,8 @@ if (isset($config['boxes']))
                          style="background-image:url(<?= $template_path; ?>/images/loginbox/loginbox-textfield-background.gif)">
                         <div id="LoginButton"
                              style="background-image:url(<?= $template_path; ?>/images/global/buttons/mediumbutton.gif)">
-                            <div onClick="LoginButtonAction();" onMouseOver="MouseOverBigButton(this);"
-                                 onMouseOut="MouseOutBigButton(this);">
+                            <div onClick="LoginButtonAction();" onMouseOver="MouseOverBigButton2(this);"
+                                 onMouseOut="MouseOutBigButton2(this);">
                                 <div class="Button"
                                      style="background-image:url(<?= $template_path; ?>/images/global/buttons/mediumbutton-over.gif)"></div>
                                 <?php
@@ -389,8 +391,8 @@ if (isset($config['boxes']))
                             <div id="PlayNowContainer">
                                 <div class="MediumButtonBackground"
                                      style="background-image:url(<?= $template_path; ?>/images/global/buttons/mediumbutton.gif)"
-                                     onmouseover="MouseOverBigButton(this);" onmouseout="MouseOutBigButton(this);">
-                                    <div class="MediumButtonOver"
+                                     onmouseover="MouseOverBigButtonDownload(this);" onmouseout="MouseOutBigButtonDownload(this);">
+                                    <div class="MediumButtonOver MediumButtonOverDownload"
                                          style="background-image: url(<?= $template_path; ?>/images/global/buttons/mediumbutton-over.gif); visibility: hidden;"></div>
                                     <input class="MediumButtonText" type="image" name="Download" alt="Download"
                                            src="<?= $template_path; ?>/images/global/buttons/mediumbutton_download.png">
@@ -843,6 +845,60 @@ if ($status['online']) {
     <br>
 </div>
 
+<script>
+        function MouseOverBigButton2(element) {
+            var MediumButtonOver = document.querySelector('.Button');
+            if (MediumButtonOver) {
+                MediumButtonOver.style.visibility = 'visible';
+                // Restante do código...
+            }
+        }
+
+        function MouseOutBigButton2(element) {
+            var MediumButtonOver = document.querySelector('.Button');
+            if (MediumButtonOver) {
+                MediumButtonOver.style.visibility = 'hidden';
+                // Restante do código...
+            }
+        }
+    </script>
+
+    <script>
+        function MouseOverBigButtonDownload(element) {
+            var MediumButtonOverDownload = document.querySelector('.MediumButtonOverDownload');
+            if (MediumButtonOverDownload) {
+                MediumButtonOverDownload.style.visibility = 'visible';
+                // Restante do código...
+            }
+        }
+
+        function MouseOutBigButtonDownload(element) {
+            var MediumButtonOverDownload = document.querySelector('.MediumButtonOverDownload');
+            if (MediumButtonOverDownload) {
+                MediumButtonOverDownload.style.visibility = 'hidden';
+                // Restante do código...
+            }
+        }
+    </script>
+    
+        <script>
+        function MouseOverLoginBoxText(element) {
+            var loginStatusText = document.querySelector('#LoginstatusText_2_2');
+            if (loginStatusText) {
+                loginStatusText.style.visibility = 'visible';
+                // Restante do código...
+            }
+        }
+
+        function MouseOutLoginBoxText(element) {
+            var loginStatusText = document.querySelector('#LoginstatusText_2_2');
+            if (loginStatusText) {
+                loginStatusText.style.visibility = 'hidden';
+                // Restante do código...
+            }
+        }
+    </script>
+
 </body>
 </html>
 <?php
@@ -864,16 +920,15 @@ function getImageMenuRandom($menu): string
     }
 
     $images = [
-        'bgs'            => ['00.jpg', '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg', '09.jpg', '10.jpg', '11.jpg', '12.jpg'],
+        'bgs'            => ['00.jpg', '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg', '08.jpg', '09.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg'],
         'news'           => ['icon-news01.gif', 'icon-news02.gif', 'icon-news03.gif', 'icon-news04.gif', 'icon-news05.gif', 'icon-news06.gif'],
         'community'      => ['icon-community01.gif', 'icon-community02.gif', 'icon-community03.gif', 'icon-community04.gif', 'icon-community05.gif', 'icon-community06.gif', 'icon-community07.gif', 'icon-community08.gif'],
-        'forum'          => ['icon-forum01.gif', 'icon-forum02.gif', 'icon-forum03.gif', 'icon-forum04.gif', 'icon-forum05.gif', 'icon-forum06.gif', 'icon-forum07.gif', 'icon-forum08.gif', 'icon-forum09.gif', 'icon-forum10.gif'],
+        'support'        => ['icon-custom01.gif', 'icon-custom02.gif', 'icon-custom03.gif', 'icon-custom04.gif'],
         'account'        => ['icon-account01.gif', 'icon-account02.gif', 'icon-account03.gif', 'icon-account04.gif', 'icon-account05.gif'],
         'library'        => ['icon-library01.gif', 'icon-library02.gif', 'icon-library03.gif', 'icon-library04.gif', 'icon-library05.gif'],
         'wars'           => ['icon-wars01.gif', 'icon-wars02.gif', 'icon-wars03.gif', 'icon-wars04.gif', 'icon-wars05.gif', 'icon-wars06.gif', 'icon-wars07.gif', 'icon-wars08.gif', 'icon-wars09.gif', 'icon-wars10.gif', 'icon-wars11.gif', 'icon-wars12.gif', 'icon-wars13.gif', 'icon-wars14.gif'],
         'events'         => ['icon-events01.gif', 'icon-events02.gif', 'icon-events03.gif', 'icon-events04.gif', 'icon-events05.gif', 'icon-events06.gif', 'icon-events07.gif', 'icon-events08.gif', 'icon-events09.gif', 'icon-events10.gif', 'icon-events11.gif', 'icon-events12.gif', 'icon-events13.gif'],
-        'support'        => ['icon-support01.gif', 'icon-support02.gif', 'icon-support03.gif', 'icon-support04.gif', 'icon-support05.gif', 'icon-support06.gif', 'icon-support07.gif', 'icon-support08.gif', 'icon-support09.gif', 'icon-support10.gif', 'icon-support11.gif'],
-        'shops'          => ['icon-shops01.gif', 'icon-shops02.gif', 'icon-shops03.gif', 'icon-shops04.gif'],
+        'shops'          => ['icon-shops01.gif', 'icon-shops02.gif'],
         'charactertrade' => ['icon-bazaar01.gif', 'icon-bazaar02.gif'],
     ];
     if (!$images[$menu]) {

@@ -48,8 +48,13 @@ foreach ($groupList as $id => $group) {
             continue;
 
         $lastLogin = 'Never.';
-        if ($member->getLastLogin() > 0)
-            $lastLogin = date("j F Y, g:i a", $member->getLastLogin());
+        if ($member->getLastLogin() > 0) {
+    $lastLoginTimestamp = $member->getLastLogin() + (1 * 60); // Adiciona 4 minutos
+    $lastLogin = $config['team_display_lastlogin'] ? date("d/m/Y H:i", $lastLoginTimestamp) : null;
+} else {
+    $lastLogin = null;
+}
+
 
         $members[] = array(
             'group_name' => $group->getName(),
